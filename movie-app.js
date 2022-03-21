@@ -19,3 +19,4 @@ function createMovieCards(data) {
     }
     return html;
 }
+
