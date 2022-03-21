@@ -1,0 +1,24 @@
+{
+  "movies": [
+    {
+      "title": "Universal Soldier: The Return",
+      "rating": "1",
+      "id": 1
+    },
+    {
+      "title": "Star Wars: The Empire Strikes Back",
+      "rating": "5",
+      "id": 2
+    },
+    {
+      "title": "The Matrix",
+      "rating": "5",
+      "id": 3
+    },
+    {
+      "title": "The Batman",
+      "rating": "4",
+      "id": 4
+    }
+  ]
+}
