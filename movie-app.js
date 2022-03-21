@@ -40,3 +40,7 @@ $("button").click(function(){
     console.log("hello");
 })
 
+function getBooks(){
+    fetch().then(resp => resp.json()).then(data => console.log(data));
+}
+
