@@ -92,9 +92,11 @@ function createMovieCards(data) {
 
         html += `<div class="movie-cards">
                             <h5>${data[i].title}</h5>
-                            <p>Rating: ${data[i].rating}</p>
-                            <p>Id: ${data[i].id}</p>
-                            <button onclick="deleteCard(${data[i].id})">Delete</button>
+                            <div class="info">
+                                <p>Rating: ${data[i].rating}</p>
+                                <p>Id: ${data[i].id}</p>
+                            </div>
+                            <button onclick="deleteCard(${data[i].id})">X</button>
                     </div>`
     }
     return html;
