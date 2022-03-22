@@ -1,10 +1,61 @@
 "use strict";
 
-function getMovies(){
-    fetch("movies.json").then(response => response.json()).then(data => $("#movie-container").html(createMovieCards(data)));
-}
+// fetch("movies.json").then(response => response.json()).then(data => $("#movie-container").html(createMovieCards(data)));
 
-getMovies()
+const form = document.getElementById("add-Movie");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const movieName = document.getElementById("title").value;
+    const movieRating = document.getElementById("rating").value;
+    const id = 5;
+
+    fetch("movies.json/",{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: movieName,
+            rating: movieRating,
+            id: id
+        }),
+    })
+        .then(function(response){
+            console.log(response)
+        return response.json()
+    })
+        .then(function(data){
+        console.log(data)
+
+        $("#movie-container").html(createMovieCards(data));
+    })
+})
+
+
+// let movieTitle = $("#title").val()
+// let movieRating = $("#rating").val()
+//
+// const addedMovies = {
+//         title: movieTitle,
+//         rating: movieRating,
+//         id: 5
+// }
+//
+// console.log(addedMovies);
+//
+// const postOption = {
+//     method: "POST",
+//     headers: {
+//         "Content-Type" : "application/json"
+//     },
+//     body: JSON.stringify(addedMovies)
+// };
+// console.log(postOption)
+//
+// fetch("movies.json", postOption).then(res => {return res.json()}).then(data => console.log(data));
+
 
 function createMovieCards(data) {
     let html = '';
@@ -18,6 +69,7 @@ function createMovieCards(data) {
                     </div>`
     }
     return html;
+<<<<<<< HEAD
 }
 
 const addedMovies = {
@@ -44,3 +96,5 @@ function getBooks(){
     fetch().then(resp => resp.json()).then(data => console.log(data));
 }
 
+
+}
