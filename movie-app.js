@@ -3,13 +3,25 @@ const moviesUrl = "https://knowledgeable-snow-argument.glitch.me/movies"
 
 function getMovies() {
     fetch(moviesUrl)
-        .then(response => response.json())
+        .then(response => {
+            $('#movie-container').html('Loading ...');
+            return response.json();
+        })
         .then(data => {
-            console.log(data[1]);
             $("#movie-container").html(createMovieCards(data));
-            })
+            });
 }
 getMovies();
+
+// fetch("https://pinto-protective-trombone.glitch.me/movies")
+// //     .then(function(resp){
+// //         $("#output").html("Loading ...");
+// //         return resp.json();
+// //     })
+// //     .then(setTimeout(function(data){
+// //         $("#output").html("Request complete");
+// //         console.log(data);
+// //     }, 5000));
 
 const form = document.getElementById("add-Movie");
 
