@@ -58,22 +58,36 @@ const postOptions = {
     body: JSON.stringify(movieToPost)
 };
 
+
     fetch(moviesUrl, postOptions).then(getMovies).catch(error => console.log(error));
 });
 
-
+const deleteOption = {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
 
 function createMovieCards(data) {
     let html = '';
 // creates 5 duplicate cards with different data populated by the API
     for (let i = 0; i < data.length; i++) {
 // takes in date data in the API and displays it in a more readable format
+
+
         html += `<div class="movie-cards">
                             <h5>${data[i].title}</h5>
                             <p>Rating: ${data[i].rating}</p>
                             <p>Id: ${data[i].id}</p>
+                            <button onclick="deleteCard(${data[i].id})">Delete</button>
                     </div>`
     }
     return html;
+}
+
+function deleteCard(id){
+    // console.log("hello")
+    fetch(moviesUrl + '/' + id, deleteOption).then(getMovies)
 }
 
