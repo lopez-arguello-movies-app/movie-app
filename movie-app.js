@@ -20,6 +20,8 @@ form.addEventListener("submit", function(e) {
     const movieName = document.getElementById("title").value;
     const movieRating = document.getElementById("rating").value;
 
+
+
     // const booksURL = "https://knowledgeable-snow-argument.glitch.me/books";
     //
     // const bookToPost = {
@@ -90,4 +92,36 @@ function deleteCard(id){
     // console.log("hello")
     fetch(moviesUrl + '/' + id, deleteOption).then(getMovies)
 }
+
+//update movie info
+const updateForm = document.getElementById("edit-Movie");
+
+
+updateForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const newMovieName = document.getElementById("new-title").value;
+    const newMovieRating = document.getElementById("new-rating").value;
+    const movieToEdit = document.getElementById("to-edit").value;
+    console.log(movieToEdit);
+
+    let modification = {
+        "title": newMovieName,
+        "rating": newMovieRating
+    }
+
+    const putOptions = {
+        method: 'PUT',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(modification)
+    }
+
+    fetch(moviesUrl + '/' + movieToEdit, putOptions).then(getMovies);
+
+});
+
+
+
 
