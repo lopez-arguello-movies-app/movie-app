@@ -66,7 +66,7 @@ const postOptions = {
 function createMovieCards(data) {
     let html = '';
 // creates 5 duplicate cards with different data populated by the API
-    for (let i = 0; i < data[i].length; i++) {
+    for (let i = 0; i < data.length; i++) {
 // takes in date data in the API and displays it in a more readable format
         html += `<div class="movie-cards">
                             <h5>${data[i].title}</h5>
