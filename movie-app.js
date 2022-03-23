@@ -13,6 +13,15 @@ function getMovies() {
 }
 getMovies();
 
+// const posterUrl =  "https://www.omdbapi.com/?i=tt3896198&apikey=" + MOVIE_API + "&te" + data[i].title
+//
+// $.get(posterUrl, {
+//     appid: MOVIE_API,
+// }).done(function(data) {
+//     console.log(data.Poster);
+// });
+
+
 // fetch("https://pinto-protective-trombone.glitch.me/movies")
 // //     .then(function(resp){
 // //         $("#output").html("Loading ...");
@@ -88,9 +97,7 @@ function createMovieCards(data) {
 // creates 5 duplicate cards with different data populated by the API
     for (let i = 0; i < data.length; i++) {
 // takes in date data in the API and displays it in a more readable format
-
-
-        html += `<div class="movie-cards">
+        html += `<div class="movie-cards-${i} movie-cards">
                             <h5>${data[i].title}</h5>
                             <div class="info">
                                 <p>Rating: ${data[i].rating}</p>
@@ -98,9 +105,19 @@ function createMovieCards(data) {
                             </div>
                             <button onclick="deleteCard(${data[i].id})">X</button>
                     </div>`
+//accesses movie posters
+        const posterUrl =  "https://www.omdbapi.com/?apikey=" + MOVIE_API + "&t=" + data[i].title
+        console.log(data[i].title);
+        $.get(posterUrl, {
+            appid: MOVIE_API,
+        }).done(function(info) {
+            console.log(info.Poster);
+            $('.movie-cards-' + i).css('background-image', `url(${info.Poster})`);
+        });
     }
     return html;
 }
+
 
 function deleteCard(id){
     // console.log("hello")
