@@ -1,3 +1,8 @@
+body {
+    background-image: url("Live-Stream-Vol-2-Background-5-Still_LSM-HD.jpg");
+    background-size: cover;
+}
+
 .movie-cards {
     background-color: grey;
     width: 250px;
@@ -27,5 +32,9 @@
     position: absolute;
     bottom: 0;
     left: 90px;
+}
+
+.modal-header {
+    background-color: lightgrey;
 }
 
