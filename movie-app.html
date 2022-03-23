@@ -8,9 +8,11 @@
 </head>
 <body>
 
-
-<div class="container-fluid row w-100">
-    <div class="container m-auto col-3 p-5">
+<div class="btn-group">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Add Movie
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <form id="add-Movie">
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="title"><br>
@@ -19,7 +21,13 @@
             <input type="submit" value="Add A Movie">
         </form>
     </div>
-    <div class="container m-auto col-3 p-5">
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Update Movie
+    </button>
+    <div class="dropdown-menu dropdown-menu-end">
         <form id="edit-Movie">
             <label for="new-title">New Title:</label><br>
             <input type="text" id="new-title" name="new-title"><br>
@@ -30,6 +38,32 @@
             <input type="submit" value="Update">
         </form>
     </div>
+</div>
+
+
+
+
+<div class="container-fluid row w-100">
+<!--    <div class="container m-auto col-3 p-5">-->
+<!--        <form id="add-Movie">-->
+<!--            <label for="title">Title:</label><br>-->
+<!--            <input type="text" id="title" name="title"><br>-->
+<!--            <label for="rating">Rating:</label><br>-->
+<!--            <input type="text" id="rating" name="rating"><br><br>-->
+<!--            <input type="submit" value="Add A Movie">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <div class="container m-auto col-3 p-5">-->
+<!--        <form id="edit-Movie">-->
+<!--            <label for="new-title">New Title:</label><br>-->
+<!--            <input type="text" id="new-title" name="new-title"><br>-->
+<!--            <label for="new-rating">New Rating:</label><br>-->
+<!--            <input type="text" id="new-rating" name="new-rating"><br>-->
+<!--            <label for="to-edit">Id Number</label><br>-->
+<!--            <input type="number" id="to-edit" name="to-edit"><br><br>-->
+<!--            <input type="submit" value="Update">-->
+<!--        </form>-->
+<!--    </div>-->
 </div>
 <!--div for displaying movies-->
 <div class="parent-container d-flex flex-wrap">
