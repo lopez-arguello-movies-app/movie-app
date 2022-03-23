@@ -98,12 +98,30 @@ function createMovieCards(data) {
     for (let i = 0; i < data.length; i++) {
 // takes in date data in the API and displays it in a more readable format
         html += `<div class="movie-cards-${i} movie-cards">
-                            <h5>${data[i].title}</h5>
-                            <div class="info">
-                                <p>Rating: ${data[i].rating}</p>
-                                <p>Id: ${data[i].id}</p>
+
+                    <button type="button" class="btn btn-primary model-button" data-bs-toggle="modal" data-bs-target="#exampleModal_${i}">
+                        Info
+                    </button>
+
+
+                    <div class="modal fade" id="exampleModal_${i}" tabindex="-1" aria-labelledby="#exampleModal_${i}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">${data[i].title}</h5>
+                                </div>
+                                <div class="modal-body">
+                                
+                                    <p>Rating: ${data[i].rating}</p>
+                                    <p>Id: ${data[i].id}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
-                            <button onclick="deleteCard(${data[i].id})">X</button>
+                        </div>
+                    </div>
+                            <button class="close-button" onclick="deleteCard(${data[i].id})">X</button>
                     </div>`
 //accesses movie posters
         const posterUrl =  "https://www.omdbapi.com/?apikey=" + MOVIE_API + "&t=" + data[i].title

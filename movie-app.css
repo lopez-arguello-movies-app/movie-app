@@ -6,11 +6,17 @@
     position: relative;
 }
 
-.movie-cards>button {
+.close-button {
     position: absolute;
     right: 0;
     top: 0;
     background-color: red;
+}
+
+.model-button {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .movie-cards>p {
@@ -22,3 +28,4 @@
     bottom: 0;
     left: 90px;
 }
+
